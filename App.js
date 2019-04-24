@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { purple, white } from "./utils/colors";
 import { Constants } from "expo";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import DeckList from "./components/DeckList";
+import AddDeck from "./components/AddDeck";
 
 function CustomStatusBar ({ backgroundColor, ...props }) {
   return (
@@ -20,6 +21,15 @@ const Tabs = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Decks',
       tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name='cards-outline' size={30} color={tintColor} />
+    }
+  },
+  AddDeck: {
+    screen: AddDeck,
+    navigationOptions: {
+      tabBarLabel: 'Add Deck',
+      tabBarIcon: Platform.OS === 'ios' 
+        ? ({ tintColor }) => <Ionicons name='ios-add-circle-outline' size={30} color={tintColor} />
+        : ({ tintColor }) => <Ionicons name='md-add-circle-outline' size={30} color={tintColor} />
     }
   }
 }, {
