@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
+import { View, StatusBar, Platform } from 'react-native';
 import { purple, white } from "./utils/colors";
 import { Constants } from "expo";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
